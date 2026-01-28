@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "Morocco2030",
+    "buildTool": "maven",
+    "cacheProvider": "ehcache",
+    "clientFramework": "react",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "entities": ["UserProfile", "Permission", "UserPermission"],
+    "jhipsterVersion": "8.11.0",
+    "jwtSecretKey": "NTY1YWY5MGRiYzBjYjM5ZjQ4NjkwOWZhZGExZWUxNTFhMzlmNDQ1MjMxMzIwYjdjZGNhYzE0NDJlZWI1NWY3YzI2YzQxZTg5Njk3ZTZmZGIzYzZmMTIxYTc1ZjkwYjE5YzViZjQ0NGIyMTMwZWY3OGQwMDI5NThhNTU0MDE4Zjk=",
+    "languages": ["fr", "en", "ar-ly"],
+    "lastLiquibaseTimestamp": 1769596810000,
+    "nativeLanguage": "fr",
+    "packageName": "com.morocco2030.app",
+    "prodDatabaseType": "postgresql",
+    "testFrameworks": ["cypress"]
+  }
+}

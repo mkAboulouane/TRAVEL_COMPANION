@@ -1,0 +1,27 @@
+{
+  "morocco2030App": {
+    "userPermission": {
+      "home": {
+        "title": "UserPermissions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau User Permission",
+        "createOrEditLabel": "Créer ou éditer un User Permission",
+        "notFound": "Aucun User Permission trouvé"
+      },
+      "created": "Un nouveau User Permission a été créé avec l'identifiant {{ param }}",
+      "updated": "Le User Permission avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le User Permission avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le User Permission {{ id }} ?"
+      },
+      "detail": {
+        "title": "User Permission"
+      },
+      "id": "ID",
+      "grantedAt": "Granted At",
+      "isActive": "Is Active",
+      "user": "User",
+      "permission": "Permission"
+    }
+  }
+}
