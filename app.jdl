@@ -7,12 +7,11 @@ application {
     databaseType sql,
     devDatabaseType postgresql,
     prodDatabaseType postgresql,
-    cacheProvider ehcache,
+    cacheProvider no,
     buildTool maven,
-    clientFramework react,
-    nativeLanguage fr,
-    languages [fr, en, ar-ly],
-    testFrameworks [cypress]
+    skipClient true,
+    skipUserManagement false,
+    enableSwaggerCodegen true
   }
   entities *
 }

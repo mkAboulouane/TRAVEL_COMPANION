@@ -354,7 +354,7 @@ class UserProfileResourceIT {
         UserProfile partialUpdatedUserProfile = new UserProfile();
         partialUpdatedUserProfile.setId(userProfile.getId());
 
-        partialUpdatedUserProfile.birthDate(UPDATED_BIRTH_DATE).preferredLanguage(UPDATED_PREFERRED_LANGUAGE);
+        partialUpdatedUserProfile.phoneNumber(UPDATED_PHONE_NUMBER);
 
         restUserProfileMockMvc
             .perform(

@@ -4,10 +4,12 @@
     "authenticationType": "jwt",
     "baseName": "Morocco2030",
     "buildTool": "maven",
-    "cacheProvider": "ehcache",
+    "cacheProvider": "no",
     "clientFramework": "react",
+    "creationTimestamp": 1769633321346,
     "databaseType": "sql",
     "devDatabaseType": "postgresql",
+    "enableSwaggerCodegen": true,
     "entities": ["UserProfile", "Permission", "UserPermission"],
     "jhipsterVersion": "8.11.0",
     "jwtSecretKey": "NTY1YWY5MGRiYzBjYjM5ZjQ4NjkwOWZhZGExZWUxNTFhMzlmNDQ1MjMxMzIwYjdjZGNhYzE0NDJlZWI1NWY3YzI2YzQxZTg5Njk3ZTZmZGIzYzZmMTIxYTc1ZjkwYjE5YzViZjQ0NGIyMTMwZWY3OGQwMDI5NThhNTU0MDE4Zjk=",
@@ -16,6 +18,8 @@
     "nativeLanguage": "fr",
     "packageName": "com.morocco2030.app",
     "prodDatabaseType": "postgresql",
+    "skipClient": true,
+    "skipUserManagement": false,
     "testFrameworks": ["cypress"]
   }
 }
