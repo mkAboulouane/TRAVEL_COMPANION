@@ -1,0 +1,26 @@
+{
+  "morocco2030App": {
+    "permission": {
+      "home": {
+        "title": "Permissions",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء Permission جديد",
+        "createOrEditLabel": "إنشاء أو تعديل Permission",
+        "notFound": "لم يتم العثور على Permissions"
+      },
+      "created": "Permission جديد تم إنشاؤه بالمعرف {{ param }}",
+      "updated": "Permission تم تحديثه بالمعرف {{ param }}",
+      "deleted": "Permission تم حذفه بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف Permission {{ id }}؟"
+      },
+      "detail": {
+        "title": "Permission"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "code": "Code"
+    }
+  }
+}
