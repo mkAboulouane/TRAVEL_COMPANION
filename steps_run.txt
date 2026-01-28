@@ -1,0 +1,179 @@
+# Steps to Run TRAVEL_COMPANION_BACK Project
+
+## Prerequisites
+- Java 17-24 installed
+- Docker installed and running
+- Maven (or use ./mvnw wrapper)
+
+## Quick Start (Recommended for Development)
+
+### 1. Start PostgreSQL Database
+```bash
+docker compose -f src/main/docker/postgresql.yml up -d
+```
+
+### 2. Run the Backend Application
+```bash
+./mvnw spring-boot:run
+```
+
+### 3. Access the Application
+- Backend API: http://localhost:8080
+- Swagger API Docs: http://localhost:8080/swagger-ui/index.html
+
+### 4. Stop PostgreSQL
+```bash
+docker compose -f src/main/docker/postgresql.yml down
+```
+
+---
+
+## Alternative: Run Everything in Docker
+
+### 1. Build the Docker Image
+```bash
+./mvnw -Pprod clean verify jib:dockerBuild
+```
+
+### 2. Start All Services (App + Database)
+```bash
+docker compose -f src/main/docker/app.yml up -d
+```
+
+### 3. View Logs
+```bash
+docker compose -f src/main/docker/app.yml logs -f app
+```
+
+### 4. Stop All Services
+```bash
+docker compose -f src/main/docker/app.yml down
+```
+
+---
+
+## Development with Auto-Reload
+
+### Option 1: Local Development (Fastest)
+```bash
+# Start database only
+docker compose -f src/main/docker/postgresql.yml up -d
+
+# Run backend with DevTools (auto-restart on changes)
+./mvnw spring-boot:run -Dspring-boot.run.fork=false
+```
+
+### Option 2: Docker with Source Mounting
+Create `docker-compose.dev.yml`:
+```yaml
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile
+    volumes:
+      - ./:/workspace:delegated
+      - ~/.m2:/root/.m2:cached
+    working_dir: /workspace
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/Morocco2030
+    command: ./mvnw spring-boot:run -Dspring-boot.run.fork=false
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - postgresql
+```
+
+Then run:
+```bash
+docker compose -f src/main/docker/postgresql.yml -f docker-compose.dev.yml up --build
+```
+
+---
+
+## Database Access
+
+### Access PostgreSQL Container Shell
+```bash
+docker compose -f src/main/docker/postgresql.yml exec postgresql bash
+```
+
+### Access PostgreSQL Database with psql
+```bash
+# From host
+docker compose -f src/main/docker/postgresql.yml exec postgresql psql -U Morocco2030 -d Morocco2030
+
+# Inside psql:
+\l                 # List databases
+\c Morocco2030     # Connect to database
+\dt                # Show tables
+\q                 # Quit
+```
+
+### Connect from External Client
+- Host: localhost
+- Port: 5432
+- Database: Morocco2030
+- Username: Morocco2030
+- Password: (empty)
+
+---
+
+## Useful Commands
+
+### Build without Tests
+```bash
+./mvnw clean install -DskipTests
+```
+
+### Run Tests Only
+```bash
+./mvnw test
+```
+
+### Clean Target and Node Modules
+```bash
+./mvnw clean
+```
+
+### Generate Entities from JDL
+```bash
+jhipster jdl app.jdl
+```
+
+### Git Commit (Skip Husky Hooks)
+```bash
+git commit --no-verify -m "your message"
+```
+
+---
+
+## Troubleshooting
+
+### Java Version Error
+- Ensure Java 17-24 is installed and set in JAVA_HOME
+- Check: `java -version`
+
+### Port Already in Use
+- Change port in `application-dev.yml` or stop the conflicting process
+- Default ports: 8080 (app), 5432 (postgres)
+
+### Database Connection Error
+- Ensure PostgreSQL container is running: `docker ps`
+- Check connection details in `src/main/resources/config/application-dev.yml`
+
+### Husky Pre-commit Hook Error
+- Use: `git commit --no-verify -m "message"`
+- Or delete `.husky` directory to disable hooks
+
+---
+
+## Project Structure
+- Backend: Spring Boot (Java)
+- Database: PostgreSQL
+- Authentication: JWT
+- API Documentation: Swagger/OpenAPI
+- No Frontend (backend-only project)
+- No Caching (disabled)

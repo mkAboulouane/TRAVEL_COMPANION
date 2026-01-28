@@ -43,7 +43,8 @@ public class SecurityConfiguration {
                 authz
                     .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/authenticate")).permitAll()
                     .requestMatchers(mvc.pattern(HttpMethod.GET, "/api/authenticate")).permitAll()
-                    .requestMatchers(mvc.pattern(HttpMethod.GET, "/status/**")).permitAll()
+                    .requestMatchers(mvc.pattern(HttpMethod.GET, "/swagger-ui/index.html")).permitAll()
+                    .requestMatchers(mvc.pattern(HttpMethod.GET, "/status/ping")).permitAll()
                     .requestMatchers(mvc.pattern("/api/register")).permitAll()
                     .requestMatchers(mvc.pattern("/api/activate")).permitAll()
                     .requestMatchers(mvc.pattern("/api/account/reset-password/init")).permitAll()
