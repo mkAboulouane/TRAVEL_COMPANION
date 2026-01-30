@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 
-/**
- * A Permission.
- */
+
 @Entity
 @Table(name = "permission")
 @SuppressWarnings("common-java:DuplicatedBlocks")

@@ -5,9 +5,7 @@ import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
 
-/**
- * A UserPermission.
- */
+
 @Entity
 @Table(name = "user_permission")
 @SuppressWarnings("common-java:DuplicatedBlocks")

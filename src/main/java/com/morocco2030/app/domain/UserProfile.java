@@ -5,9 +5,6 @@ import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-/**
- * Extension du User JHipster
- */
 @Entity
 @Table(name = "user_profile")
 @SuppressWarnings("common-java:DuplicatedBlocks")
